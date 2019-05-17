@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Simple Form</title>
+        
+        <!-- Load React. -->
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+        <!-- Load JSX. -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    </head>
+
+    <body>        
+    </body>
+    
+    <!-- Load my React component. -->
+    <script type="text/babel">
+        
+        class Form extends React.Component {
+            
+            constructor( props ) {
+                
+                super( props );
+                this.state = {
+                    values: {
+                        name: '',
+                        lastName: '',
+                        genre: '',
+                        age: 0,
+                    },
+                };
+
+                this.handleChange = this.handleChange.bind( this );
+                this.handleSubmit = this.handleSubmit.bind( this );
+            }
+
+
+            handleChange( e ){
+                const name = e.target.name;
+                const value = e.target.value;
+
+                this.setState( state => ({
+                    values : {
+                        ...this.state.values,
+                        [name] : value,
+                    }
+                }));                
+            }
+
+            
+            handleSubmit( e ) {
+
+                e.preventDefault();
+                
+                for ( let [key, value] of Object.entries( this.state.values ) ) {
+                    
+                    if ( !value ) {
+                        alert("Algo não foi preenchido!");
+                        return;
+                    }                    
+                }
+                
+                alert(`${ this.state.values.name } ${ this.state.values.lastName } seu formulario tá daora!`);                
+            }
+
+
+            render() {
+                return(
+                    <form onSubmit = { this.handleSubmit }>
+                        <label>
+                            Nome:
+                            <input type="text" name="name" onChange={ this.handleChange }/>
+                        </label>
+                        <label>
+                            Sobrenome:
+                            <input type="text" name="lastName" onChange={ this.handleChange }/>
+                        </label>
+                        <label>
+                            Sexo:
+                            <select multiple={true} name="genre" onChange={ this.handleChange }>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                            </select>
+                        </label>
+                        <label>
+                            Idade:
+                            <input type="number" name="age" onChange={ this.handleChange }/>
+                        </label>
+
+                        <input type="submit" value="Enviar"/>
+                    </form>
+                );
+            }
+        }
+
+
+        ReactDOM.render(
+            <Form/>,
+            document.querySelector('body')
+        )
+  
+    </script>
+
+</html>

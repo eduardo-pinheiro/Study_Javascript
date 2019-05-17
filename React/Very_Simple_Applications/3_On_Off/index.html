@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Toggle Button: On | Off</title>
+        
+        <!-- Load React. -->
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+        <!-- Load JSX. -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    </head>
+
+    <body>        
+    </body>
+    
+    <!-- Load my React component. -->
+    <script type="text/babel">
+        
+        class ButtonToggle extends React.Component {
+
+            constructor( props ) {
+                
+                super( props );
+                this.state = { trigged: true },
+                
+                this.toggle = this.toggle.bind( this );
+            }
+
+            toggle() {
+                this.setState( state => ({
+                    trigged: !( state.trigged )
+                }))
+            }
+
+            render() {
+                return (
+                    <h3>
+                        TOGGLE BUTTON <br/>
+                        <button onClick = { this.toggle } >
+                            { this.state.trigged ? 'ON' : 'OFF' }
+                        </button>
+                    </h3>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <ButtonToggle/>,
+            document.querySelector('body')
+        );
+  
+    </script>
+
+</html>

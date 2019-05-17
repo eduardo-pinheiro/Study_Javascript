@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Clock Application</title>
+        
+        <!-- Load React. -->
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+        <!-- Load JSX. -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    </head>
+
+    <body>        
+    </body>
+    
+    <!-- Load my React component. -->
+    <script type="text/babel">
+        
+        class Clock extends React.Component {
+
+            constructor( props ) {
+                super( props );
+                this.state = { date: new Date() };
+            }
+
+
+            componentDidMount() {
+                
+                this.timerID = setInterval( 
+                    () => this.tick(),
+                    1000
+                );
+            }
+
+
+            componentWillUnmount() {
+                clearInterval( this.timerID );
+            }
+
+
+            tick() {
+                this.setState({
+                    date: new Date()
+                })
+            }
+
+
+            render() {
+                return (
+                    <div>
+                        <h1> It is { this.state.date.toLocaleTimeString() }. </h1>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Clock />,
+            document.querySelector('body')
+        );
+
+    </script>
+
+</html>

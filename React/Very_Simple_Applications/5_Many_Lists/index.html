@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Many Lists</title>
+        
+        <!-- Load React. -->
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+        <!-- Load JSX. -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    </head>
+
+    <body>        
+    </body>
+    
+    <!-- Load my React component. -->
+    <script type="text/babel">
+        
+        var quantityList = parseInt( prompt("How many lists?") );
+        
+        function MakeLists( props ) {
+            
+            var lists = [];
+
+            for ( var i = 0; i < props.quantityList; i++ ) {
+
+                lists.push( <li>Lista { i + 1 }</li> )
+            } 
+
+            return (
+                <ul>{lists}</ul>
+            );
+        }
+
+        ReactDOM.render(
+            <div>
+                <h1>Suas { quantityList } listas estão abaixo:</h1>
+                <MakeLists quantityList = { quantityList } />
+            </div>,
+            document.querySelector('body')
+        );
+
+                
+    </script>
+
+</html>

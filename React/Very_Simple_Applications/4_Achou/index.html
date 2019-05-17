@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Achoo!</title>
+        
+        <!-- Load React. -->
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+        <!-- Load JSX. -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    </head>
+
+    <body>        
+    </body>
+    
+    <!-- Load my React component. -->
+    <script type="text/babel">
+        function Achou( props ) {
+            
+            if ( !props.show ){
+                return(
+                    <h1>Cade?</h1>
+                )
+            }
+
+            return (
+                <h1>Achoo!</h1>
+            );
+        }
+
+
+        class Page extends React.Component {
+
+            constructor( props ) {
+                
+                super( props );
+                this.state = { trigged : true };
+
+                this.toggle = this.toggle.bind( this );
+            }
+
+
+            toggle() {
+
+                this.setState( state => ({
+                    trigged : !( state.trigged )
+                }));
+            }
+
+
+            render() {
+                return(
+                    <div>
+                        <Achou show = { this.state.trigged }/>
+                        <button onClick = { this.toggle }>
+                            { this.state.trigged ? 'Esconder' : 'Achar' }
+                        </button>
+                    </div>
+                )
+            }
+        }
+        
+        
+        ReactDOM.render(
+            <Page/>,
+            document.querySelector('body')
+        );
+
+    </script>
+
+</html>
