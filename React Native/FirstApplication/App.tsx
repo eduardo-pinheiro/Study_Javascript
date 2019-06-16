@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
-// Choose your lesson
-import FlexBoxLesson from './src/lessons/FlexBox' 
-import TextInputLesson from './src/lessons/TextInput' 
-import TouchablesLesson from './src/lessons/Touchables'
-import ScrollViewLesson from './src/lessons/ScrollView'
-import FlatIListLesson from './src/lessons/FlatList'
-import FlatListLesson from './src/lessons/FlatList';
-import SectionListLesson from './src/lessons/SectionList'
+
+/* View's */
+  import FlexBoxLesson from './src/lessons/view/FlexBox' 
+  import TextInputLesson from './src/lessons/view/TextInput' 
+  import TouchablesLesson from './src/lessons/view/Touchables'
+  import ScrollViewLesson from './src/lessons/view/ScrollView'
+  import FlatIListLesson from './src/lessons/view/FlatList'
+  import FlatListLesson from './src/lessons/view/FlatList';
+  import SectionListLesson from './src/lessons/view/SectionList'
+
+/* Navigation */
+  import NavigationApp from './src/lessons/navigation/App'
 
 export default class App extends Component {
   render() {
-    return (<SectionListLesson/>)
+    return (<NavigationApp/>)
   }
 }
