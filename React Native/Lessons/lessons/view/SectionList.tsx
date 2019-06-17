@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
 
-export default class SectionListBasics extends Component {
+interface props {}
+
+interface state {
+  items: Array< { title: string, data: string[] } >
+}
+
+export default class SectionListBasics extends Component< props, state> {
   
   constructor( props ) {
     
@@ -22,7 +28,6 @@ export default class SectionListBasics extends Component {
           sections = { this.state.items }
           renderItem={ ({ item }) => <Text style={ styles.item }>{ item }</Text> }
           renderSectionHeader={ ({ section }) => <Text style={ styles.sectionHeader }>{ section.title }</Text>}
-          keyExtractor={ ( item, index ) => index }
         />
       </View>
     );

@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-export default class FlatListLesson extends Component {
+interface state {
+  items: Array< { key: string} >
+}
+
+interface props{}
+
+export default class FlatListLesson extends Component< props ,state > {
 
   constructor( props ) {
     
@@ -41,8 +47,8 @@ export default class FlatListLesson extends Component {
     return (
       <View style={styles.container}>
         <FlatList
-          data={this.state.items}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          data = { this.state.items }
+          renderItem = { ( { item } ) => <Text style={ styles.item }>{ item.key }</Text>}
         />
       </View>
     );

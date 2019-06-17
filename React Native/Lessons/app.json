@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "My First Application",
-    "slug": "FirstApplication",
+    "name": "Lessons",
+    "slug": "Lessons",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [

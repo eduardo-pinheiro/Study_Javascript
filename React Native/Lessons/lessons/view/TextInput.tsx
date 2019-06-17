@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { Text, TextInput, View } from 'react-native'
 
-export default class TextInputLesson extends Component {
+interface props {}
+
+interface state {
+    text: string
+}
+
+export default class TextInputLesson extends Component< props, state > {
     
     constructor( props ) {
         
