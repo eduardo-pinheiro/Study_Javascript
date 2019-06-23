@@ -5,7 +5,7 @@ function init() {
 
 function reset() {
   detector.stop()
-  
+
   const resetState = {
     emotions: {
       anger: [],
