@@ -3,7 +3,7 @@ let divStream = document.getElementById('stream')
 let width = 640
 let height = 480
 
-let faceMode = affdex.FaceDetectorMode.LARGE_FACES
+let faceMode = affdex.FaceDetectorMode.SMALL_FACE
 
 let detector = new affdex.CameraDetector(divStream, width, height, faceMode)
 
@@ -15,12 +15,13 @@ let startTime = 0
 detector.addEventListener("onInitializeSuccess", function () {
 
   render('ongoing')
-  
+
+  //Define intervalo de tempo entre cada captura
   intervalPointer = setInterval(() => {
-    let currentState = state.getState()
-    currentState.frameFlag = !currentState.frameFlag
-    state.setState(currentState)
-  }, 500);
+    let newState = state.getState()
+    newState.frameFlag = true
+    state.setState(newState)
+  }, 200);
 })
 
 //Frame detect
@@ -32,7 +33,8 @@ detector.addEventListener("onImageResultsSuccess",
     let currentState = state.getState()
 
     if (currentState.frameFlag) {
-      frame(faces, timestamp - startTime)
+      setEmotionsInState(faces, timestamp - startTime)
+      reactEmotions(faces, timestamp - startTime)
     }
   }
 )

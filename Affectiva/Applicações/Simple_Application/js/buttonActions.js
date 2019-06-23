@@ -11,4 +11,5 @@ function reset() {
 function finish() {
   detector.stop()
   render('final')
+  renderGraph()
 }

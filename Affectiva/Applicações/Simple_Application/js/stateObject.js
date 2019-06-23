@@ -1,7 +1,16 @@
 let state = {
 
   current: {
-    frames: [],
+    emotions: {
+      anger: [],
+      contempt: [],
+      disgust: [],
+      engagement: [],
+      fear: [],
+      joy: [],
+      sadness: [],
+      valence: [],
+    },
     frameFlag: false
   },
 

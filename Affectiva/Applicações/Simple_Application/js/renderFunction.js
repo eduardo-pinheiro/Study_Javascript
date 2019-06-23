@@ -9,16 +9,16 @@ function render(current) {
 
     switch (current) {
         case 'start':
-            start.display = "block"
+            start.display = "flex"
             break
         case 'loading':
-            loading.display = "block"
+            loading.display = "flex"
             break
         case 'ongoing':
-            ongoing.display = "block"
+            ongoing.display = "flex"
             break
         case 'final':
-            final.display = "block"
+            final.display = "flex"
             break
     }
 }

@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
-  <title>Teste affectiva</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <title>Emotions in Time</title>
 </head>
 
 <body>
@@ -19,31 +20,56 @@
     </section>
 
     <section id="loading">
-      <div>
-        <p>Calibrando detecção</p>
+      <div class="loading">
+        <img src="assets/images/loading.svg">
+        <p>CALIBRANDO DETECÇÃO</p>
       </div>
       <button class="reset">REINICIAR</button>
     </section>
 
     <section id="ongoing">
-      <div id="stream"></div>
-      <div id="realTimeEmotions"></div>
-      <button class="finish">FINALIZAR</button>
-      <button class="reset">REINICIAR</button>
+      
+      <div class="content">
+          <div id="stream"></div>
+      
+          <div id="realTimeEmotions">
+            <div>
+                <p>Raiva: <span id="raiva"></span></p>    
+                <p>Felicidade: <span id="felicidade"></span></p>    
+                <p>Tristeza: <span id="tristeza"></span></p>    
+                <p>Desprezo: <span id="desprezo"></span></p>    
+                <p>Nojo: <span id="nojo"></span></p>    
+                <p>Medo: <span id="medo"></span></p>    
+            </div>
+
+            <div class="buttons">
+              <button class="finish">FINALIZAR</button>
+              <button class="reset">REINICIAR</button>    
+            </div>
+
+          </div>
+      </div>
+      
     </section>
 
     <section id="final">
-      <div id="graph"></div>
+      <div id="emotionsChart" class="chart-graph"></div>
+      <div id="engagementChart" class="chart-graph"></div>
+      <div id="valenceChart" class="chart-graph"></div>
       <button class="reset">REINICIAR</button>
     </section>
   </main>
 
   <script src="https://download.affectiva.com/js/3.2.1/affdex.js"></script>
+  <script src="js/libs/canvasjs.js"></script>
+
   <script src="js/renderFunction.js"></script>
-  <script src="js/frameFunction.js"></script>
+  <script src="js/setEmotionsInState.js"></script>
+  <script src="js/reactEmotions.js"></script>
   <script src="js/affectivaConfig.js"></script>
-  <script src="js/actions.js"></script>
+  <script src="js/buttonActions.js"></script>
   <script src="js/stateObject.js"></script>
+  <script src="js/renderGraph.js"></script>
   <script src="js/app.js"></script>
 
 </body>

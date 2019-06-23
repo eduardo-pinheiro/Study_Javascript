@@ -1,3 +1,193 @@
+body{
+  font-family: 'montserrat'!important;
+  color: white;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+button{
+  font-family: 'montserrat'!important;  
+  font-weight: 900;
+  background-color: rgb(0,0,0,0.7);
+  border: none;
+  border-radius: 50px 0px;
+  color: white;
+}
+button:hover{
+  background: white;
+  color: black;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
 section{
   display: none;
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background-image: url('assets/images/background-start.jpg');
+  background-color: rgba(0,0,0,0.8);
+  background-blend-mode: color;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/*Start*/
+section#start button.start{
+  width: 300px;
+  height: 90px;
+  font-size: 45px;
+}
+
+/*Loading*/
+section#loading .loading{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+section#loading .loading p{
+  font-weight: 900;
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+section#loading button.reset{
+  margin-top: 20px;
+  padding: 10px 40px;
+  font-size: 20px;
+}
+
+
+/*Ongoing*/
+
+section#ongoing .buttons button:hover {
+  background: #333333;
+  color: white;
+}
+
+  /*Ongoing content*/
+section#ongoing .content{
+  display: flex;
+  padding: 20px;
+}
+    /*Content video*/
+section#ongoing #stream {
+  flex: 3;
+}
+
+section#ongoing #stream video {
+  width: 100%;
+  border-radius: 20px;
+}
+  /*Content real time emotions*/
+section#ongoing #realTimeEmotions {
+  background: white;
+  color: #333333;
+  border-radius: 30px;
+  margin-left: 20px;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+section#ongoing #realTimeEmotions p {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+section#ongoing #realTimeEmotions p:nth-child(1) {
+  margin: 0;
+}
+
+section#ongoing #realTimeEmotions p span {
+  font-weight: 900;
+  font-size: 25px;
+}
+
+/*Ongoing buttons*/  
+section#ongoing .buttons button {
+  background: white;
+  color: #333333;
+  padding: 10px 30px;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+/*Final*/
+  /*Charts*/
+section#final .chart-graph{
+  margin-top: 30px;
+  width: 95%; 
+  height: 300px;
+  display: inline-block;
+}
+
+.canvasjs-chart-tooltip {
+  top: 60px!important;
+  bottom: unset!important;
+  box-shadow: none!important;
+}
+
+#final button.reset {
+  margin: 30px;
+  padding: 20px 50px;
+  font-size: 40px;
+}
+
+  @media only screen and (max-width: 850px) {
+    /*Ongoing*/
+    section#ongoing .content {
+      flex-direction: column;
+    }
+
+    section#ongoing #realTimeEmotions {
+      margin-left: 0;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    section#ongoing #realTimeEmotions div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
+    section#ongoing #realTimeEmotions p:nth-child(1) {
+      margin-top: auto;
+    }
+
+    section#ongoing #realTimeEmotions p {
+      font-size: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    section#ongoing #realTimeEmotions p span {
+      font-size: 10px;
+    }
+
+    section#ongoing .buttons {
+      padding-top: 15px;
+    }
+    section#ongoing .buttons button {
+      margin-top: none;
+      font-size: 11px;
+  }
 }
